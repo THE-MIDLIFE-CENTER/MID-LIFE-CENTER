@@ -3,14 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pudhumai Clinic Intro</title>
+<title>The MID-LIFE CETER</title>
 
-<!-- 
-    🛑 SUPABASE SQL SETUP:
-    Run this command in your Supabase SQL Editor to support the email field:
-    
-    ALTER TABLE menopause_enquiries ADD COLUMN email text;
--->
 
 <style>
     :root {
@@ -224,100 +218,22 @@
         transform: translateY(-5px) rotate(-45deg);
     }
 
-    /* Expert Section */
-    #expertsSection {
-        width: 100%;
-        text-align: center;
-        padding-top: 140px;
-        opacity: 0;
-        transition: opacity 1.3s ease;
-    }
-
-    #expertsSection h2 {
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--olive-text);
-        margin-bottom: 30px;
-        padding: 0 16px;
-    }
-
-    .experts-container {
-        display: flex;
-        justify-content: center;
-        gap: 24px;
-        flex-wrap: wrap;
-        padding: 0 16px 40px;
-    }
-
-    @keyframes waveIn {
-        0% {
-            opacity: 0;
-            transform: translateY(20px) rotate(-3deg);
-        }
-        50% {
-            opacity: 1;
-            transform: translateY(-6px) rotate(3deg);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0) rotate(0deg);
-        }
-    }
-
-    .expert-card {
-        width: 220px;
-        max-width: 46%;
-        background: radial-gradient(circle at top, #ffffff 0%, #f3f6ee 55%, #eef2e8 100%);
-        border-radius: 22px;
-        padding: 16px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-        text-align: center;
-        opacity: 0;
-        animation: waveIn 0.9s forwards ease-out;
-        cursor: pointer;
-        border: 1px solid rgba(140, 160, 120, 0.18);
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .expert-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    .expert-card:nth-child(1) { animation-delay: 0.3s; }
-    .expert-card:nth-child(2) { animation-delay: 0.5s; }
-    .expert-card:nth-child(3) { animation-delay: 0.7s; }
-    .expert-card:nth-child(4) { animation-delay: 0.9s; }
-
-    .expert-card img {
-        width: 100%;
-        height: 210px;
-        object-fit: cover;
-        border-radius: 18px;
-        margin-bottom: 10px;
-    }
-
-    .expert-name {
-        font-size: 17px;
-        font-weight: 700;
-        color: #333;
-        margin-bottom: 4px;
-    }
-
-    .expert-title {
-        font-size: 13px;
-        color: #666;
-        line-height: 1.4;
-    }
-
-    /* Enquiry Form Section (hidden during splash) */
+    /* Enquiry Form Section - NOW AT TOP */
     #enquiryFormSection {
-        padding: 20px 16px 60px;
+        /* Added padding-top to clear fixed header */
+        padding: 130px 16px 40px; 
         display: flex;
         justify-content: center;
         opacity: 0;
         pointer-events: none;
         transition: opacity 1.3s ease;
+    }
+
+    /* Green Pulse Animation for Checklist */
+    @keyframes pulseGreen {
+        0% { box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12), 0 0 0 0 rgba(109, 143, 91, 0.7); }
+        70% { box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12), 0 0 25px 15px rgba(109, 143, 91, 0); }
+        100% { box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12), 0 0 0 0 rgba(109, 143, 91, 0); }
     }
 
     .enquiry-wrapper {
@@ -327,8 +243,10 @@
         backdrop-filter: blur(8px);
         border-radius: 24px;
         padding: 22px 18px 22px;
-        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
-        border: 1px solid rgba(160, 180, 140, 0.3);
+        border: 2px solid rgba(160, 180, 140, 0.3);
+        
+        /* Attention Grabbing Pulse - FASTER SPEED (1.2s) */
+        animation: pulseGreen 1.2s infinite; 
     }
 
     .enquiry-wrapper h2 {
@@ -433,6 +351,95 @@
         margin-top: 8px;
         font-size: 13px;
         color: #444;
+    }
+
+    /* Expert Section - NOW BELOW FORM */
+    #expertsSection {
+        width: 100%;
+        text-align: center;
+        padding-top: 20px; /* Reduced padding since it's not at top anymore */
+        padding-bottom: 80px;
+        opacity: 0;
+        transition: opacity 1.3s ease;
+    }
+
+    #expertsSection h2 {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--olive-text);
+        margin-bottom: 30px;
+        padding: 0 16px;
+    }
+
+    .experts-container {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        padding: 0 16px 40px;
+    }
+
+    @keyframes waveIn {
+        0% { opacity: 0; transform: translateY(20px) rotate(-3deg); }
+        50% { opacity: 1; transform: translateY(-6px) rotate(3deg); }
+        100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+    }
+
+    /* Attention-asking float animation for doctors */
+    @keyframes gentleFloat {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0px); }
+    }
+
+    .expert-card {
+        width: 220px;
+        max-width: 46%;
+        background: radial-gradient(circle at top, #ffffff 0%, #f3f6ee 55%, #eef2e8 100%);
+        border-radius: 22px;
+        padding: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        text-align: center;
+        opacity: 0;
+        /* Combine wave entrance and then continuous float - FASTER SPEED (2.5s) */
+        animation: waveIn 0.9s forwards ease-out, gentleFloat 2.5s infinite ease-in-out 2s;
+        cursor: pointer;
+        border: 1px solid rgba(140, 160, 120, 0.18);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .expert-card:hover {
+        /* Pause float on hover and lift slightly */
+        animation-play-state: paused;
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        border-color: var(--olive-mid);
+    }
+
+    .expert-card:nth-child(1) { animation-delay: 0.3s, 2s; }
+    .expert-card:nth-child(2) { animation-delay: 0.5s, 2.5s; }
+    .expert-card:nth-child(3) { animation-delay: 0.7s, 3s; }
+    .expert-card:nth-child(4) { animation-delay: 0.9s, 3.5s; }
+
+    .expert-card img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        border-radius: 18px;
+        margin-bottom: 10px;
+    }
+
+    .expert-name {
+        font-size: 17px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 4px;
+    }
+
+    .expert-title {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.4;
     }
 
     /* POPUP OVERLAY */
@@ -545,11 +552,6 @@
         background: #dbe5d2 !important;
     }
     
-    /* Brochure button style */
-    .btn-brochure {
-        background: linear-gradient(135deg, var(--olive-dark), var(--olive-mid)) !important;
-    }
-
     /* Back button style */
     .btn-back {
         background: transparent !important;
@@ -777,9 +779,9 @@
         .menu-toggle {
             display: flex;
         }
-
-        #expertsSection {
-            padding-top: 110px;
+        
+        #enquiryFormSection {
+            padding-top: 100px; /* Adjust for mobile header */
         }
 
         .experts-container {
@@ -906,7 +908,38 @@
     </div>
 </header>
 
-<!-- DOCTOR SECTION -->
+<!-- ENQUIRY / CHECKLIST FORM (MOVED TO TOP) -->
+<section id="enquiryFormSection">
+    <div class="enquiry-wrapper">
+        <h2 data-key="formTitle">Join Our Menopause Checklist</h2>
+        <p data-key="formDesc">Share your details, and we’ll send you our specialized menopause checklist and updates from THE MID-LIFE CENTER.</p>
+
+        <form id="enquiryForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullName" data-key="labelName">Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+                </div>
+                <!-- Updated Contact Group with Dropdown -->
+                <div class="form-group">
+                    <label for="contactValue" data-key="labelContact">Contact Details</label>
+                    <div class="contact-input-group">
+                        <select id="contactType">
+                            <option value="phone" data-key="optPhone">Phone</option>
+                            <option value="email" data-key="optEmail">Email</option>
+                        </select>
+                        <input type="tel" id="contactValue" name="contactValue" placeholder="10-digit mobile number" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" data-key="btnJoin">Join Checklist</button>
+            <div id="formMessage"></div>
+        </form>
+    </div>
+</section>
+
+<!-- DOCTOR SECTION (MOVED BELOW FORM) -->
 <div id="expertsSection">
     <h2 data-key="expertsTitle">Meet Our Dedicated Menopause Experts</h2>
 
@@ -939,37 +972,6 @@
     </div>
 </div>
 
-<!-- ENQUIRY / CHECKLIST FORM -->
-<section id="enquiryFormSection">
-    <div class="enquiry-wrapper">
-        <h2 data-key="formTitle">Join Our Menopause Checklist</h2>
-        <p data-key="formDesc">Share your details, and we’ll send you our specialized menopause checklist and updates from THE MID-LIFE CENTER.</p>
-
-        <form id="enquiryForm">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="fullName" data-key="labelName">Name</label>
-                    <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
-                </div>
-                <!-- Updated Contact Group with Dropdown -->
-                <div class="form-group">
-                    <label for="contactValue" data-key="labelContact">Contact Details</label>
-                    <div class="contact-input-group">
-                        <select id="contactType">
-                            <option value="phone" data-key="optPhone">Phone</option>
-                            <option value="email" data-key="optEmail">Email</option>
-                        </select>
-                        <input type="tel" id="contactValue" name="contactValue" placeholder="10-digit mobile number" required>
-                    </div>
-                </div>
-            </div>
-
-            <button type="submit" id="submitBtn" data-key="btnJoin">Join Checklist</button>
-            <div id="formMessage"></div>
-        </form>
-    </div>
-</section>
-
 <!-- POPUP OVERLAY -->
 <div id="doctorPopup">
     <div id="closePopup">&times;</div>
@@ -984,7 +986,7 @@
             <div class="popup-buttons">
                 <!-- PDF button (uses doctor-specific PDF) -->
                 <button id="pdfButton" class="btn-pdf" data-key="btnViewPdf">View Doctor PDF</button>
-               
+                <!-- Removed Brochure Button -->
                 <button id="backButton" class="btn-back" data-key="btnBack">Back</button>
             </div>
         </div>
@@ -1022,16 +1024,15 @@
 <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-    // 🔐 REPLACE THIS WITH YOUR ACTUAL GEMINI API KEY
     const GEMINI_API_KEY = "AIzaSyCZYlxQb-iQ4gu2lAuPRote5Oe4SgeeaiE";
 
-    // 🔐 Replace with your own Supabase project details
     const SUPABASE_URL = 'https://vlktdxuffwawqulmtklz.supabase.co';
+
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZsa3RkeHVmZndhd3F1bG10a2x6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwNDU5NTYsImV4cCI6MjA3OTYyMTk1Nn0.FnAWQEqpEC5tMezVf0X0nCo9VPGAd6skWU9fRQnBZj8';
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    /* --- TRANSLATION DATA --- */
+    
     const translations = {
         en: {
             clinicName: "THE MID-LIFE CENTER",
@@ -1166,11 +1167,7 @@
             document.getElementById("mainHeader").style.opacity = "1";
         }, 200);
 
-        setTimeout(() => {
-            document.getElementById("expertsSection").style.opacity = "1";
-        }, 500);
-
-        // show form only after splash & enable scroll & show chat
+        // FORM SECTION COMES FIRST NOW
         setTimeout(() => {
             const formSection = document.getElementById("enquiryFormSection");
             formSection.style.opacity = "1";
@@ -1181,7 +1178,12 @@
             const chatWidget = document.getElementById("chat-widget");
             chatWidget.style.opacity = "1";
             chatWidget.style.pointerEvents = "auto";
-        }, 700);
+        }, 500);
+
+        // EXPERTS SECTION COMES SECOND
+        setTimeout(() => {
+            document.getElementById("expertsSection").style.opacity = "1";
+        }, 800);
 
     }, totalTime);
 
@@ -1479,7 +1481,6 @@
             document.getElementById("contactValue").type = 'tel';
             document.getElementById("contactValue").placeholder = t.placeholderPhone;
         }
-
         submitBtn.disabled = false;
     });
 </script>
