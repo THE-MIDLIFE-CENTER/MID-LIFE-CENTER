@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – THE MID-LIFE CENTER</title>
+
+<style>
+    :root {
+        --olive-dark: #4f6f4f;
+        --olive-mid: #6d8f5b;
+        --olive-soft: #e8eee3;
+        --olive-bg: #f6f8f4;
+        --olive-text: #465238;
+        --accent: #c47c6b;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #f6f8f4 0%, #ffffff 40%, #f7f9f5 100%);
+        color: #333;
+    }
+
+    /* SIMPLE HEADER */
+    header {
+        width: 100%;
+        padding: 14px 18px;
+        background: linear-gradient(90deg, #fdfefb 0%, #f1f6ec 40%, #fdfefb 100%);
+        border-bottom: 1px solid rgba(0,0,0,0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    }
+
+    .header-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-text .name {
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        color: var(--olive-text);
+    }
+
+    .header-text .sub {
+        font-size: 12px;
+        color: #777;
+    }
+
+    @media (max-width: 600px) {
+        .header-inner {
+            justify-content: flex-start;
+        }
+        .header-text .name {
+            font-size: 16px;
+        }
+    }
+
+    /* PAGE WRAPPER */
+    .page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 24px 18px 50px;
+    }
+
+    /* HERO / INTRO */
+    .hero-card {
+        border-radius: 24px;
+        padding: 18px 18px 16px;
+        background: radial-gradient(circle at top, #ffffff 0%, #f3f6ee 55%, #eef2e8 100%);
+        border: 1px solid rgba(160, 180, 140, 0.5);
+        box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+        margin-bottom: 26px;
+    }
+
+    .hero-tag {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #888;
+        margin-bottom: 6px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+        line-height: 1.35;
+        color: var(--olive-text);
+        margin-bottom: 8px;
+    }
+
+    .hero-title span {
+        color: var(--accent);
+    }
+
+    .hero-text {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #555;
+        margin: 0;
+    }
+
+    /* PROBLEM STATEMENT */
+    .section-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--olive-text);
+        margin: 4px 0 10px;
+    }
+
+    .section {
+        margin-bottom: 26px;
+    }
+
+    .problem-box {
+        border-radius: 20px;
+        background: #ffffffcc;
+        border: 1px solid rgba(150,170,140,0.5);
+        padding: 14px 14px 12px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #444;
+    }
+
+    .problem-list {
+        margin: 8px 0 0 16px;
+        padding: 0;
+        font-size: 13px;
+    }
+
+    .problem-list li {
+        margin-bottom: 4px;
+    }
+
+    /* STORY */
+    .story-text {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #444;
+    }
+
+    .story-text p {
+        margin: 0 0 10px;
+    }
+
+    /* DOCTORS BLOCK */
+    .doctors-card {
+        border-radius: 22px;
+        background: #ffffff;
+        border: 1px solid rgba(160,180,140,0.6);
+        padding: 16px 14px 12px;
+    }
+
+    .doctors-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        font-size: 13px;
+    }
+
+    .doctor {
+        padding: 8px 8px;
+        border-radius: 14px;
+        background: var(--olive-soft);
+    }
+
+    .doctor-name {
+        font-weight: 600;
+        color: var(--olive-text);
+        margin-bottom: 2px;
+        font-size: 13px;
+    }
+
+    .doctor-role {
+        color: #555;
+        font-size: 12px;
+    }
+
+    .clinic-note {
+        font-size: 13px;
+        color: #555;
+        margin-top: 12px;
+    }
+
+    @media (max-width: 640px) {
+        .hero-title {
+            font-size: 20px;
+        }
+        .doctors-grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    /* FOOTER MINI */
+    footer {
+        text-align: center;
+        padding: 10px 10px 22px;
+        font-size: 11px;
+        color: #888;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <img src="Logo.png" alt="THE MID-LIFE CENTER logo" class="logo">
+        <div class="header-text">
+            <div class="name">THE MID-LIFE CENTER</div>
+            <div class="sub">Menopause & Mid-life Health • Coimbatore</div>
+        </div>
+    </div>
+</header>
+
+<main class="page">
+
+    <!-- INTRO / HERO -->
+    <section class="hero-card">
+        <div class="hero-tag">About Us</div>
+        <h1 class="hero-title">
+            A clinic born from the question:<br>
+            <span>“Why is menopause still treated like an afterthought?”</span>
+        </h1>
+        <p class="hero-text">
+            THE MID-LIFE CENTER in Coimbatore was created for women who are tired of hearing
+            “It’s just age” or “You’ll get used to it”. We exist so that every woman moving
+            through perimenopause and menopause has a place where her symptoms are taken seriously,
+            her questions are answered clearly, and her care is thoughtfully planned.
+        </p>
+    </section>
+
+    <!-- PROBLEM STATEMENT -->
+    <section class="section">
+        <h2 class="section-title">The problem we kept seeing</h2>
+        <div class="problem-box">
+            <p>
+                Again and again, women came to us with the same pattern:
+            </p>
+            <ul class="problem-list">
+                <li>Hot flashes, sleep issues, anxiety and weight changes being dismissed as “stress”.</li>
+                <li>Multiple visits to different clinics, but no one joining the dots of hormones, heart, bones and mood.</li>
+                <li>Feeling guilty for “not coping better” instead of being supported with a clear plan.</li>
+            </ul>
+            <p style="margin-top:8px;">
+                It wasn’t that care didn’t exist — it just wasn’t designed
+                <strong>specifically for mid-life and menopause.</strong>
+                That gap is what THE MID-LIFE CENTER was built to solve.
+            </p>
+        </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="section">
+        <h2 class="section-title">How the clinic came to life in Coimbatore</h2>
+        <div class="story-text">
+            <p>
+                The idea for THE MID-LIFE CENTER started with real stories from women in and
+                around Coimbatore — working professionals, homemakers, business owners, caregivers.
+                They were holding families, careers and responsibilities together,
+                while privately struggling with symptoms they couldn’t fully explain.
+            </p>
+            <p>
+                Many of them had normal reports on paper, but their everyday life felt far from normal.
+                Sleep was broken, mood felt unpredictable, confidence dipped. They were told to “relax”,
+                “think positive”, or “manage somehow”. That didn’t sit right with us.
+            </p>
+            <p>
+                We realised what they needed was not just a prescription, but a
+                <strong>specialised, calm, menopause-focused clinic</strong> — a place where they could
+                sit down, be heard without hurry, understand what their body is doing, and move forward
+                with a structured plan.
+            </p>
+            <p>
+                That is how THE MID-LIFE CENTER was born in Coimbatore:
+                as a dedicated space for mid-life health, built around listening,
+                science, and long-term wellbeing.
+            </p>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section">
+        <h2 class="section-title">The team behind THE MID-LIFE CENTER</h2>
+        <div class="doctors-card">
+            <p style="font-size:13px;margin:0 0 10px;color:#444;">
+                Our clinic is led by a focused team of four doctors, each bringing deep expertise
+                in a different pillar of mid-life care:
+            </p>
+
+            <div class="doctors-grid">
+                <div class="doctor">
+                    <div class="doctor-name">Dr. Lakshmi Iyer</div>
+                    <div class="doctor-role">MD, DGO, DNB – Hormone Balance & Menopause Care</div>
+                </div>
+                <div class="doctor">
+                    <div class="doctor-name">Dr. Christina Roberts</div>
+                    <div class="doctor-role">MBBS, MRCOG, MS – Nutrition & Lifestyle Integration</div>
+                </div>
+                <div class="doctor">
+                    <div class="doctor-name">Dr. Saranya Devi</div>
+                    <div class="doctor-role">MD, PhD – Bone Health & Metabolic Support</div>
+                </div>
+                <div class="doctor">
+                    <div class="doctor-name">Dr. Kavitha Sundar</div>
+                    <div class="doctor-role">MD, FOGSI – Heart Health & Mid-life Risk Prevention</div>
+                </div>
+            </div>
+
+            <p class="clinic-note">
+                Together, they design care that doesn’t look at one report in isolation.
+                Instead, they look at the full picture of mid-life — hormones, heart, bones,
+                metabolism, sleep and emotional wellbeing — and help you move through this chapter
+                with clarity and confidence.
+            </p>
+        </div>
+    </section>
+
+    <!-- CLOSING LINE -->
+    <section class="section">
+        <p class="story-text">
+            At THE MID-LIFE CENTER, our promise is simple:
+            <strong>you don’t have to “just manage” your menopause.</strong>
+            You deserve care that is specialised, sensitive, and truly centred on you.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    © <span id="year"></span> THE MID-LIFE CENTER • Coimbatore
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
